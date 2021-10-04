@@ -1,0 +1,29 @@
+{
+  "name": "prog_amb_web_proyecto",
+  "version": "1.0.0",
+  "description": "API RESTFUL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nocolo1599/Prog_Amb_Web_Proyecto.git"
+  },
+  "keywords": [
+    "API",
+    "RESTFUL"
+  ],
+  "author": "Nicolas Zapata F",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nocolo1599/Prog_Amb_Web_Proyecto/issues"
+  },
+  "homepage": "https://github.com/nocolo1599/Prog_Amb_Web_Proyecto#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.9"
+  }
+}

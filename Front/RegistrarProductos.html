@@ -4,29 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/Formularios.css">
     <title>Registrar Productos</title>
 </head>
 <body>
     <div class="Form-Post-Lacteos">
-        <form action="http://localhost:27017/TIENDA.productos" method="POST">
+        <form action="http://localhost:3000/productos" method="POST">
             <p>
                 <h3> Registro de productos lacteos</h3>
                 <label for="Codigo_Producto"> Codigo </label> <br>
-                    <input type="text"> <br>
+                    <input type="text" id="codigo" name="codigo"> <br>
                 <label for="Nombre_Producto"> Nombre producto </label> <br>
-                    <input type="text"> <br>
+                    <input type="text" id="nombre" name="nombre"> <br>
                 <label for="Cantidad_Unidad"> Cantidad</label> <br>
-                    <input type="number"> <br>
-                <label for="Peso_Unidad"> Peso</label> <br>
-                    <input type="number"> <br>
+                    <input type="number" id="cantidad" name="cantidad"> <br>
+                <label for="Peso_Unidad">Peso </label> <br>
+                    <input type="number"  id="peso" name="peso"> <br>
                 <label for="Fecha_Caducidad"> Fecha caducidad</label> <br>
-                    <input type="date"> <br>
+                    <input type="date" id="Fecha_Caducidad" name="Fecha_Caducidad"> <br>
                 <label for="Valor"> Valor</label> <br>
-                    <input type="number"> <br>
+                    <input type="number" id="Valor" name="Valor"> <br>
+                
+            <p>
                 <button type="submit"> Registrar</button>
                 <input type="reset">
 
-            <p>
         </form>
     </div>
 
@@ -37,7 +41,7 @@
 
 <script>
     $(document).ready(function(){
-        $.get('http://localhost:27017/TIENDA.productos',function(data,err){
+        $.get('http://localhost:3000/productos',function(data,err){
             for(var i=0;i<data.length;i++){
                 $("#list").html($("#list").html() + "<br>" + data[i].Nombre_Producto 
                 + data[i].Cantidad_Unidad + data[i].Peso_Unidad + data[i].Fecha_Caducidad + data[i].Valor);
@@ -45,7 +49,6 @@
         });
     });
 </script>
-
 
 </body>
 </html>

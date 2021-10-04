@@ -8,7 +8,7 @@
 
     //mongoose instance conection 
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://localhost:27017/TIENDA/productos')
+    mongoose.connect('mongodb://localhost:27017/TIENDA')
 
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())

@@ -1,0 +1,30 @@
+{
+  "name": "prog_amb_web_proyecto",
+  "version": "1.0.0",
+  "description": "API restful",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nocolo1599/Prog_Amb_Web_Proyecto.git"
+  },
+  "keywords": [
+    "API",
+    "Productos"
+  ],
+  "author": "Nicolas ZF",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nocolo1599/Prog_Amb_Web_Proyecto/issues"
+  },
+  "homepage": "https://github.com/nocolo1599/Prog_Amb_Web_Proyecto#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "json": "^11.0.0",
+    "mongoose": "^6.0.8",
+    "morgan": "^1.10.0"
+  }
+}

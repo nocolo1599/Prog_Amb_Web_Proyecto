@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <title>Consulatr productos</title>
+</head>
+<body>
+    <h3>
+        Consultar Productos
+    </h3>
+
+    <div class="Form-Post-Lacteos">
+        <Form action="http://localhost:5000/TIENDA" method="POST">
+            <p>
+                <label for="Id_Producto"> Identification del producto </label> <br>
+                    <input type="text"> <br>
+                
+                <input type="button" value="Registrar"> 
+                <input type="reset">
+            <p>
+        </Form>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+
+<script>
+    $(document).ready(function(){
+        $.get('http://localhost:5000/TIENDA',function(data,err){
+            for(var i=0;i<data.length;i++){
+                $("#list").html($("#list").html() + "<br>" + data[i].Nombre_Producto 
+                + data[i].Cantidad_Unidad + data[i].Peso_Unidad + data[i].Fecha_Caducidad + data[i].Valor);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

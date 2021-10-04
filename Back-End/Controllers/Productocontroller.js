@@ -1,6 +1,6 @@
 'use strict';
 
-var mongose = require('mongoose');
+var mongoose = require('mongoose');
 var Producto = mongoose.model('Producto');
 
 
@@ -11,6 +11,14 @@ exports.list = function(req, res) {
             res.json(productos);
      });
     };
+
+    exports.search = function (req, res) {
+        Producto.findById(req.params.prod_id, function (err, producto) {
+          if (err)
+            res.send(err);
+          res.json(producto);
+        });
+      };
 
 exports.create_new = function(req, res) {
     var new_producto = new Producto(req.body);

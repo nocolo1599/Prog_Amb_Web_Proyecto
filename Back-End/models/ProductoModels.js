@@ -1,27 +1,27 @@
 'use strict';
 
-var mongose = require('mongoose');
+var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-let ProductoSchema = new Schema({
+const ProductoSchema = new Schema({
     nombre:{
         type: String,
-        required: "Se requiere el nombre del producto"
+        required: "Se requiere el nombre del producto es obligatorio"
     },
 
     cantidad:{
         type: Number,
-        required: "Se requiere la cantidad por unidad del producto"
+        required: "Se requiere la cantidad por unidad del producto es obligatorio"
     },
 
     peso:{
         type: Number,
-        required: "Se requiere un peso por unidad del producto"
+        required: "Se requiere un peso por unidad del producto es obligatorio"
     },
     
     fecha_caducidad:{
         type: Date,
-        required: "Se requiere la fecha de caducidad del producto"
+        required: "Se requiere la fecha de caducidad del producto es obligatorio"
     },
 
     valor:{

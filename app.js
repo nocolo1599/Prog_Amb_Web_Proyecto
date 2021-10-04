@@ -1,6 +1,6 @@
     var express = require('express');
     var app = express();
-    var port = 30000;
+    var port = 3000;
     var bodyParser = require ('body-parser');
     var cors = require('cors');
     var mongoose = require ('mongoose');
@@ -8,7 +8,7 @@
 
     //mongoose instance conection 
     mongoose.Promise = global.Promise;
-    mongoose.connect('mongodb://localhost:27017/TIENDA')
+    mongoose.connect('mongodb://localhost:27017/TIENDA/productos')
 
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())

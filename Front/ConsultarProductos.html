@@ -13,13 +13,13 @@
     </h3>
 
     <div class="Form-Post-Lacteos">
-        <Form action="http://localhost:5000/TIENDA" method="POST">
+        <Form action="http://localhost:3000/TIENDA" method="POST">
             <p>
                 <label for="Id_Producto"> Identification del producto </label> <br>
                     <input type="text"> <br>
                 
-                <input type="button" value="Registrar"> 
-                <input type="reset">
+                    <button type="submit"> Registrar</button>
+                    <input type="reset">
             <p>
         </Form>
 
@@ -29,7 +29,7 @@
 
 <script>
     $(document).ready(function(){
-        $.get('http://localhost:5000/TIENDA',function(data,err){
+        $.get('http://localhost:3000/TIENDA',function(data,err){
             for(var i=0;i<data.length;i++){
                 $("#list").html($("#list").html() + "<br>" + data[i].Nombre_Producto 
                 + data[i].Cantidad_Unidad + data[i].Peso_Unidad + data[i].Fecha_Caducidad + data[i].Valor);

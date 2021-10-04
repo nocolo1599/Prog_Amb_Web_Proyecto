@@ -4,6 +4,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const ProductoSchema = new Schema({
+    Codigo:{
+        type: Number,
+        required: "Se requiere el codigo del producto es obligatorio"
+    },
+
     nombre:{
         type: String,
         required: "Se requiere el nombre del producto es obligatorio"

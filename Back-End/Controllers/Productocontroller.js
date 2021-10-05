@@ -1,48 +1,48 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var Producto = mongoose.model('Producto');
+var Productos = mongoose.model('Productos');
 
 
 exports.list = function(req, res) {
-    Producto.find({}, function(err,productos){
+    Productos.find({}, function(err,productos){
          if (err)
                 res.send(err);
             res.json(productos);
      });
     };
-
+/*
     exports.search = function (req, res) {
         Producto.findById(req.params.prod_id, function (err, producto) {
           if (err)
             res.send(err);
-          res.json(producto);
+          res.json(productos);
         });
       };
-
-exports.create_new = function(req, res) {
-    var new_producto = new Producto(req.body);
-    new_producto.save(function(err,producto) {
+*/
+exports.create = function(req, res) {
+    var new_producto = new Productos(req.body);
+    new_producto.save(function(err,productos) {
         if (err)
             res.send(err);
-        res.json(producto);
+        res.json(productos);
     });
 
 };
 
 exports.update = function(req, res) {
-    Producto.findOneAndUpdate({ _id: req.params.productos_id }, 
+    Productos.findOneAndUpdate({ _id: req.params.id }, 
                             req.body, 
-                            { new: false},function(err, producto){
+                            { new: false},function(err, productos){
     if (err)
         res.send(err);
-    res.json(producto);
+    res.json(productos);
     });
 
 };
 
 exports.delete = function(req, res) {
-    Producto.remove({ _id: req.params.productos_id}, function (err, productos){
+    Productos.remove({ _id: req.params.productos_id}, function (err, productos){
         if (err)
             res.send(err);
         else

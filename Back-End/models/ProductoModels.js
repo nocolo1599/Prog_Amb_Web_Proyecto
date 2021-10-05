@@ -4,36 +4,31 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 const ProductoSchema = new Schema({
-    Codigo:{
-        type: Number,
-        required: "Se requiere el codigo del producto es obligatorio"
-    },
-
-    nombre:{
+    Nombre_Producto:{
         type: String,
-        required: "Se requiere el nombre del producto es obligatorio"
+        required: 'Se requiere el nombre del producto es obligatoria'
     },
 
-    cantidad:{
+    Cantidad_Unidad:{
         type: Number,
-        required: "Se requiere la cantidad por unidad del producto es obligatorio"
+        required: 'Se requiere la cantidad por unidad del producto es obligatori'
     },
 
-    peso:{
+    Peso:{
         type: Number,
-        required: "Se requiere un peso por unidad del producto es obligatorio"
+        required: 'Se requiere un peso por unidad del producto es obligatorio'
     },
     
-    fecha_caducidad:{
+    Fecha_Caducidad:{
         type: Date,
-        required: "Se requiere la fecha de caducidad del producto es obligatorio"
+        required: 'Se requiere la fecha de caducidad del producto es obligatorio'
     },
 
-    valor:{
+    Valor:{
         type: Number,
-        required: "la valor del producto es obligatorio"
+        required: 'la valor del producto es obligatorio'
     }
 
 });
 
-module.exports = mongoose.model('Producto', ProductoSchema );
+module.exports = mongoose.model('Productos', ProductoSchema );

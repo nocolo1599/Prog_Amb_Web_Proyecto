@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/Formularios.css">
     <title>Registrar Productos</title>
@@ -31,9 +31,25 @@
                 <button type="reset"> Borrar </button>
 
         </form>
+
     </div>
 
-    <div id="list">
+    <div id="table">
+        <table>
+            <thead>
+                <h3> Productos registrados</h3>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Nombre Producto</td>
+                <td>Cantidad Unidad</td>
+                <td>Peso Unidad</td>
+                <td>Fecha Caducidad</td>
+                <td>Valor<td>
+                </tr>
+
+            </tbody>
+        </table>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -42,7 +58,7 @@
     $(document).ready(function(){
         $.get('http://localhost:3000/productos',function(data,err){
             for(var i=0;i<data.length;i++){
-                $("#list").html($("#list").html()  + data[i].Nombre_Producto 
+                $("#table").html($("#table").html() '<tr><td>' + data[i].Nombre_Producto 
                 + data[i].Cantidad_Unidad + data[i].Peso_Unidad + data[i].Fecha_Caducidad + data[i].Valor );
             }
         });

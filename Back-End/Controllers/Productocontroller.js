@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Productos = mongoose.model('Productos');
 
 
-exports.list = function(req, res) {
+exports.table = function(req, res) {
     Productos.find({}, function(err,productos){
          if (err)
                 res.send(err);

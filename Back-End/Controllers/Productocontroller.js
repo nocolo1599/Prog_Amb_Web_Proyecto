@@ -11,15 +11,15 @@ exports.table = function(req, res) {
             res.json(productos);
      });
     };
-/*
+
     exports.search = function (req, res) {
-        Producto.findById(req.params.prod_id, function (err, producto) {
+        Productos.findById(req.params.prod_id, function (err, productos) {
           if (err)
             res.send(err);
           res.json(productos);
         });
       };
-*/
+
 exports.create = function(req, res) {
     var new_producto = new Productos(req.body);
     new_producto.save(function(err,productos) {

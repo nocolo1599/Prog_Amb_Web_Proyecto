@@ -14,7 +14,7 @@ const ProductoSchema = new Schema({
         required: 'Se requiere la cantidad por unidad del producto es obligatori'
     },
 
-    Peso:{
+    Peso_Unidad:{
         type: Number,
         required: 'Se requiere un peso por unidad del producto es obligatorio'
     },

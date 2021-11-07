@@ -34,8 +34,8 @@
 
     </div>
 
-    <div id="table">
-        <table>
+    <div id="tabla_productos">
+        <table id="table"> 
             <thead>
                 <h3> Productos registrados</h3>
             </thead>
@@ -55,11 +55,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <script>
-    $(document).ready(function(){
-        $.get('http://localhost:3000/productos',function(data,err){
-            for(var i=0;i<data.length;i++){
-                $("#table").html($("#table").html() '<tr><td>' + data[i].Nombre_Producto 
-                + data[i].Cantidad_Unidad + data[i].Peso_Unidad + data[i].Fecha_Caducidad + data[i].Valor );
+    $(document).ready(function () {
+      $.get('http://localhost:3000/productos', function (data, err) {
+        for (var i = 0; i < data.length; i++) {
+          var tbody = '<tr><td>' + data[i].Nombre_Producto + '</td>'
+         + '<td>' + data[i].Cantidad_Unidad + '</td>' 
+         + '<td>' + data[i].Peso_Unidad + '</td>' 
+         + '<td>' + data[i].Fecha_Caducidad + '</td>' 
+         + '<td>' + data[i].Valor + '</td></tr>';
+          $('#table').append(tbody);
             }
         });
     });

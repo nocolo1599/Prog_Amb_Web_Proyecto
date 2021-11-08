@@ -7,21 +7,76 @@
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/Formularios.css">
+    <script src="https://kit.fontawesome.com/b6764a4d50.js" crossorigin="anonymous"></script>
+    
     <title>Registrar Productos</title>
 </head>
 <body>
+    <div class="container">
+        <span class="nav-bar" id="btnMenu"> <i class="fas fa-bars"> </i> Menu </span>
+        <nav class="main-nav">
+            <ul class="menu" id="menu">
+                <li class="navbar-item"><a href="home.html" class="menu_link"> <i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="container-submenu">
+                    <a href="#" class="menu_link submenu-Btn">Productos <i class="fas fa-angle-down"></i></a>
+                <ul class="subMenu">
+                    <li class="navbar-item"> <a href="reporte.html" class="menu_link"> Reporte</a> 
+                    </li>
+                    <li class="navbar-item"> <a href="Lacteos.html" class="menu_link"> Lacteos</a> 
+                    </li>
+                    <li class="navbar-item"> <a href="Carnicos.html" class="menu_link"> Carnicos</a>
+                    </li>
+                    <li class="navbar-item"> <a href="Verduras.html" class="menu_link"> Verduras </a>
+                    </li>
+                    <li class="navbar-item"> <a href="Frutas.html" class="menu_link"> Frutas</a>
+                    </li>
+                    <li class="navbar-item"> <a href="ProductosAseo.html" class="menu_link">Aseo </a>
+                    </li>
+                    <li class="navbar-item"> <a href="ProductosAseoPersonal.html" class="menu_link">Aseo personal </a>
+                    </li>
+                </ul>
+                </li>
+                <li class="navbar-item">
+                    <a href="RegistrarProductos.html" class="menu_link">Formulario Inscripcion Productos</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="" class="menu_link">Ventas</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="reporte.html" class="menu_link">Reporte</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="" class="menu_link">Estadisticas</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="PerfilUsuario.html" class="menu_link"><i class="fas fa-user-circle"></i> Perfil Usuario</a>
+                </li>
+        </ul>
+
+       
     <div class="form-Registro">
         <form  action="http://localhost:3000/productos" method="POST">
             
                 <h3> Registro de productos lacteos</h3>
-                 
+               
+                <label for="Tipo_Producto"> Tipo producto </label> 
+                <select>
+                    <option value="">Seleccionar</option> 
+                    <option value="Lacteos">Lacteos</option>
+                    <option value="Carnicos">Carnicos</option>
+                    <option value="Frutas">Frutas</option>
+                    <option value="Verduras">Verduras</option>
+                    <option value="Aseo">Aseo</option>
+                    <option value="Aseo Personal">Aseo Personal</option>
+                     </select>  <br> <br>
                 <label for="Nombre_Producto"> Nombre producto </label> 
-                    <input type="text" id="nombre" name="nombre"> <br>
-                <label for="Cantidad_Unidad"> Cantidad</label> 
-                    <input type="number" id="cantidad" name="cantidad"> <br>
-                <label for="Peso_Unidad">Peso </label> 
-                    <input type="number"  id="peso" name="peso"> <br>
-                <label for="Fecha_Caducidad"> Fecha caducidad</label> 
+                    <input type="text" id="Nombre" name="Nombre"> <br>
+                <label for="Cantidad_Unidad"> Cantidad Und </label> 
+                    <input type="number" id="Cantidad_Unidad" name="cantidad_unidad"> <br>
+                <label for="Peso_Unidad">Peso Und</label> 
+                    <input type="number"  id="Peso_Unidad" name="Peso_Unidad"> <br>
+                <label for="Fecha_Caducidad"> Fecha Caducidad</label> 
                     <input type="date" id="Fecha_Caducidad" name="Fecha_Caducidad"> <br>
                 <label for="Valor"> Valor</label> 
                     <input type="number" id="Valor" name="Valor">  <br>
@@ -34,16 +89,17 @@
 
     </div>
 
-    <div id="tabla_productos">
+    <div class ="tabla_productos">
         <table id="table"> 
             <thead>
                 <h3> Productos registrados</h3>
             </thead>
             <tbody>
                 <tr>
+                <td>Tipo Producto</td>    
                 <td>Nombre Producto</td>
-                <td>Cantidad Unidad</td>
-                <td>Peso Unidad</td>
+                <td>Cantidad Und</td>
+                <td>Peso Und</td>
                 <td>Fecha Caducidad</td>
                 <td>Valor<td>
                 </tr>
@@ -58,7 +114,8 @@
     $(document).ready(function () {
       $.get('http://localhost:3000/productos', function (data, err) {
         for (var i = 0; i < data.length; i++) {
-          var tbody = '<tr><td>' + data[i].Nombre_Producto + '</td>'
+          var tbody = '<tr><td>' + data[i].Tipo_Producto + '</td>' 
+         + '<td>' + data[i].Nombre_Producto + '</td>'
          + '<td>' + data[i].Cantidad_Unidad + '</td>' 
          + '<td>' + data[i].Peso_Unidad + '</td>' 
          + '<td>' + data[i].Fecha_Caducidad + '</td>' 
@@ -69,5 +126,13 @@
     });
 </script>
 
+
+<script src="js/menu.js"></script>  
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"> </script>
 </body>
 </html>

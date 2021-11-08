@@ -20,16 +20,16 @@ exports.table = function(req, res) {
         });
       };
 
-exports.create = function(req, res) {
-    var new_producto = new Productos(req.body);
-    new_producto.save(function(err,productos) {
-        if (err)
-            res.send(err);
-        res.json(productos);
-    });
-
-};
-
+      exports.create = function(req, res) {
+        var new_producto = new Productos(req.body);
+        new_producto.save(function(err,productos) {
+            if (err)
+                res.send(err);
+            res.json(productos);
+        });
+    
+    };
+    
 exports.update = function(req, res) {
     Productos.findOneAndUpdate({ _id: req.params.id }, 
                             req.body, 

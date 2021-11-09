@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/Formularios.css">
+    <script src="https://kit.fontawesome.com/b6764a4d50.js" crossorigin="anonymous"></script>
+    
+    <title>Registrar Productos</title>
+</head>
+<body>
+    <div class="container">
+        <span class="nav-bar" id="btnMenu"> <i class="fas fa-bars"> </i> Menu </span>
+        <nav class="main-nav">
+            <ul class="menu" id="menu">
+                <li class="navbar-item"><a href="home.html" class="menu_link"> <i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="container-submenu">
+                    <a href="#" class="menu_link submenu-Btn">Productos <i class="fas fa-angle-down"></i></a>
+                <ul class="subMenu">
+                    <li class="navbar-item"> <a href="reporte.html" class="menu_link"> Reporte</a> 
+                    </li>
+                    <li class="navbar-item"> <a href="Lacteos.html" class="menu_link"> Lacteos</a> 
+                    </li>
+                    <li class="navbar-item"> <a href="Carnicos.html" class="menu_link"> Carnicos</a>
+                    </li>
+                    <li class="navbar-item"> <a href="Verduras.html" class="menu_link"> Verduras </a>
+                    </li>
+                    <li class="navbar-item"> <a href="Frutas.html" class="menu_link"> Frutas</a>
+                    </li>
+                    <li class="navbar-item"> <a href="ProductosAseo.html" class="menu_link">Aseo </a>
+                    </li>
+                    <li class="navbar-item"> <a href="ProductosAseoPersonal.html" class="menu_link">Aseo personal </a>
+                    </li>
+                </ul>
+                </li>
+                <li class="navbar-item">
+                    <a href="" class="menu_link">Ventas</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="reporte.html" class="menu_link"><i class="far fa-file-alt"> </i>Reporte</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="" class="menu_link"> <i class="fas fa-chart-line"> </i>Estadisticas</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="Usuario.html" class="menu_link"><i class="fas fa-user-circle"></i> Registro Usuario</a>
+                </li>
+        </ul>
+
+       
+    <div class="form-Registro">
+        <form  action="http://localhost:3000/Factura" method="POST">
+            
+                <h3> Factura </h3>
+               
+                <label for="Articulo"> Articulo </label> 
+                    <input type="text" id="Articulo" name="Articulo"> <br>
+                <label for="Cantidad_Unidad"> Cantidad Und </label> 
+                    <input type="number" id="Cantidad_Unidad" name="cantidad_unidad"> <br>
+                <label for="Valor_Articulo"> Valor Articulo </label>  
+                    <input type="number" id="Valor_Articulo" name="Valor_Articulo"> <br>
+                
+                <label for="Subtotal">Subtotal</label> 
+                    <input type="number"  id="Subtotal" name="Subtotal"> <br>
+                <label for="Total"> Total</label> 
+                    <input type="number" id="Total" name="Total"> <br>
+                
+            
+                <button type="submit"> Calcular</button> 
+                <button type="reset"> Borrar </button>
+
+        </form>
+
+    </div>
+
+    <div class ="tabla_factura">
+        <table id="table"> 
+            <thead>
+                <h3> Factura</h3>
+            </thead>
+            <tbody>
+                <tr>   
+                <td>Articulo</td>
+                <td>Cantidad Und</td>
+                <td>Valor Articulo</td>
+                <td>Subtotal</td>
+                <td>Total<td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+      $.get('http://localhost:3000/Factura', function (data, err) {
+        for (var i = 0; i < data.length; i++) {
+          var tbody = '<tr><td>'+ '<td>' + data[i].Articulo + '</td>'
+         + '<td>' + data[i].Cantidad_Und + '</td>' 
+         + '<td>' + data[i].Valor_Articulo + '</td>' 
+         + '<td>' + data[i].Subtotal + '</td>' 
+         + '<td>' + data[i].Total + '</td></tr>';
+          $('#table').append(tbody);
+            }
+        });
+    });
+</script>
+
+
+<script src="js/menu.js"></script>  
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"> </script>
+</body>
+</html>

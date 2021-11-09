@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/styleUsuario.css">
+    <script src="https://kit.fontawesome.com/b6764a4d50.js" crossorigin="anonymous"></script>
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+
+    </script>
+
+    <title>Clientes</title>
+
+    <style>
+        .container{
+            max-width: 960px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <span class="nav-bar" id="btnMenu"> <i class="fas fa-bars"> </i> Menu </span>
+        <nav class="main-nav">
+            <ul class="menu" id="menu">
+                <li class="navbar-item"><a href="home.html" class="menu_link"> <i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="container-submenu">
+                    <a href="#" class="menu_link submenu-Btn">Productos <i class="fas fa-angle-down"></i></a>
+                <ul class="subMenu">
+                    <li class="navbar-item"> <a href="reporte.html" class="menu_link"> Reporte</a> 
+                    </li>
+                    <li class="navbar-item"> <a href="Lacteos.html" class="menu_link"> Lacteos</a> 
+                    </li>
+                    <li class="navbar-item"> <a href="Carnicos.html" class="menu_link"> Carnicos</a>
+                    </li>
+                    <li class="navbar-item"> <a href="Verduras.html" class="menu_link"> Verduras </a>
+                    </li>
+                    <li class="navbar-item"> <a href="Frutas.html" class="menu_link"> Frutas</a>
+                    </li>
+                    <li class="navbar-item"> <a href="ProductosAseo.html" class="menu_link">Aseo </a>
+                    </li>
+                    <li class="navbar-item"> <a href="ProductosAseoPersonal.html" class="menu_link">Aseo personal </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="navbar-item">
+                <a href="" class="menu_link">Ventas</a>
+            </li>
+            <li class="navbar-item">
+                <a href="reporte.html" class="menu_link"><i class="far fa-file-alt"> </i>Reporte</a>
+            </li>
+            <li class="navbar-item">
+                <a href="" class="menu_link"> <i class="fas fa-chart-line"> </i>Estadisticas</a>
+            </li>
+            <li class="navbar-item">
+                <a href="Factura.html" class="menu_link"><i class="fas fa-file-invoice"></i> Factura</a>
+            </li>
+        </ul>
+
+
+    <div class="container">
+        <div class="shadow-lg pb-3 mb-5 bg-body rounded">
+
+            <h4>DATOS DEL CLIENTE</h4>
+
+            <form action="http://localhost:5000/Clientes" method="POST">
+
+                <label for="cedulaC" class="form-label">
+                    Cedula Cliente
+                    <input id="cedulaC" name="cedula" type="number" class="form-control" required>
+                </label><br>
+
+                <label for="nombreC" class="form-label">
+                    Nombre Cliente
+                    <input id="nombreC" name="nombre" type="text" class="form-control" required>
+                </label><br>
+
+                <label for="apellidosC" class="form-label">
+                    Apellidos Cliente
+                    <input id="apellidosC" name="apellidos" type="text" class="form-control" required>
+                </label><br>
+
+                <label for="celular" class="form-label">
+                    celular Cliente
+                    <input id="celular" name="celular" type="number" class="form-control" required>
+                </label><br>
+
+                <label for="ciudad" class="form-label">
+                    Ciudad Cliente
+                    <input id="ciudad" name="ciudad" type="text" class="form-control" required>
+                </label><hr>
+
+                <button type="submit" class="w-100 btn btn-guardar btn-lg"> <i class="bi bi-save"></i> Registrar Cliente</button>
+
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+    <div id="list">
+        <table id="tablaClientes" class="table mt-4">
+            <thead>
+            <tr>
+                <th style="display: none;">ID</th>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Celular</th>
+                <th>Ciudad</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+
+        </table>
+
+    </div>
+
+    <!-- Modal para Editar   -->
+    <div id="modalCliente" class="modal fade" tabindex="-1" aria-labelledby="modalCliente" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Editar Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="http://localhost:5000/Clientes/:id" method="POST">
+                        <input name="id_editar" id="id_editar" type="text" hidden>
+
+                        <div class="mb-3">
+                            <label for="cedulaC_editar" class="col-form-label">Cedula:</label>
+                            <input id="cedulaC_editar" name="cedulaC_editar" type="number" class="form-control" value="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="nombreC_editar" class="col-form-label">Nombre:</label>
+                            <input id="nombreC_editar" name="nombreC_editar" type="text" class="form-control" value="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="apellidosC_editar" class="col-form-label">Apellidos:</label>
+                            <input id="apellidosC_editar" name="apellidosC_editar" type="text" class="form-control" value="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="celular_editar" class="col-form-label">Celular:</label>
+                            <input id="celular_editar" name="celular_editar" type="text" class="form-control" value="">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ciudad_editar" class="col-form-label">Ciudad:</label>
+                            <input id="ciudad_editar" name="ciudad_editar" type="number" class="form-control" value="">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function (){
+            $.get('http://localhost:5000/Clientes', function (data, err){
+
+                for(var i = 0; i < data.length; i++){
+                    $("#list").html($('#list').html() +
+                        "<tr>" +
+                        "<th scope='col'>" + data[i].cedulaC + "</th>" +
+                        "<tb>" + data[i].nombreC + "</td>" +
+                        "<tb>" + data[i].apellidosC + "</td>" +
+                        "<tb>" + data[i].celular + "</tb>" +
+                        "<tb>" + data[i].ciudad + "</tb>" +
+                        "</tr>")
+                }
+                console.log(data)
+
+            })
+        })
+
+    </script>
+
+    
+<script src="js/menu.js"></script> 
+
+
+</body>
+
+</html>

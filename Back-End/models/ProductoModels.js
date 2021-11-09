@@ -11,11 +11,11 @@ const ProductoSchema = new Schema({
 
     Cantidad_Unidad:{
         type: Number,
-        required: 'Se requiere la cantidad por unidad del producto es obligatori'
+        required: 'Se requiere la cantidad por unidad del producto es obligatorio'
     },
 
     Peso_Unidad:{
-        type: Number,
+        type: String,
         required: 'Se requiere un peso por unidad del producto es obligatorio'
     },
     
@@ -31,4 +31,4 @@ const ProductoSchema = new Schema({
 
 });
 
-module.exports = mongoose.model('Productos', ProductoSchema );
+mongoose.model('Productos', ProductoSchema);

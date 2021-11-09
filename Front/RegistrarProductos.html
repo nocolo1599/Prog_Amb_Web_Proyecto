@@ -36,22 +36,23 @@
                     <li class="navbar-item"> <a href="ProductosAseoPersonal.html" class="menu_link">Aseo personal </a>
                     </li>
                 </ul>
-                </li>
-                <li class="navbar-item">
-                    <a href="RegistrarProductos.html" class="menu_link">Formulario Inscripcion Productos</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="" class="menu_link">Ventas</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="reporte.html" class="menu_link">Reporte</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="" class="menu_link">Estadisticas</a>
-                </li>
-                <li class="navbar-item">
-                    <a href="PerfilUsuario.html" class="menu_link"><i class="fas fa-user-circle"></i> Perfil Usuario</a>
-                </li>
+            </li>
+
+            <li class="navbar-item">
+                <a href="" class="menu_link">Ventas</a>
+            </li>
+            <li class="navbar-item">
+                <a href="reporte.html" class="menu_link"><i class="far fa-file-alt"> </i>Reporte</a>
+            </li>
+            <li class="navbar-item">
+                <a href="" class="menu_link"> <i class="fas fa-chart-line"> </i>Estadisticas</a>
+            </li>
+            <li class="navbar-item">
+                <a href="Factura.html" class="menu_link"><i class="fas fa-file-invoice"></i> Factura</a>
+            </li>
+            <li class="navbar-item">
+                <a href="Usuario.html" class="menu_link"><i class="fas fa-user-circle"></i> Registro Usuario</a>
+            </li>
         </ul>
 
        
@@ -71,15 +72,15 @@
                     <option value="Aseo Personal">Aseo Personal</option>
                      </select>  <br> <br>
                 <label for="Nombre_Producto"> Nombre producto </label> 
-                    <input type="text" id="Nombre" name="Nombre"> <br>
+                    <input type="text" id="Nombre" name="Nombre" class="form-Registro" required> <br>
                 <label for="Cantidad_Unidad"> Cantidad Und </label> 
-                    <input type="number" id="Cantidad_Unidad" name="cantidad_unidad"> <br>
+                    <input type="number" id="Cantidad_Unidad" name="cantidad_unidad" class="form-Registro" required> <br>
                 <label for="Peso_Unidad">Peso Und</label> 
-                    <input type="number"  id="Peso_Unidad" name="Peso_Unidad"> <br>
+                    <input type="text"  id="Peso_Unidad" name="Peso_Unidad" class="form-Registro" required> <br>
                 <label for="Fecha_Caducidad"> Fecha Caducidad</label> 
-                    <input type="date" id="Fecha_Caducidad" name="Fecha_Caducidad"> <br>
+                    <input type="date" id="Fecha_Caducidad" name="Fecha_Caducidad" class="form-Registro" required> <br>
                 <label for="Valor"> Valor</label> 
-                    <input type="number" id="Valor" name="Valor">  <br>
+                    <input type="number" id="Valor" name="Valor" class="form-Registro" required> <br>
                 
             
                 <button type="submit"> Registrar</button> 
